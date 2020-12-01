@@ -28,7 +28,7 @@ class Api
     private function request(string $method, string $endpoint = null, array $options = [])
     {
         try {
-            $response = $this->client->request($method, $endpoint, $options);
+            $response = $this->client->request($method, $endpoint ?? '', $options);
         } catch (RequestException $e) {
             if (!$e->hasResponse()) {
                 throw new BradescoRequestException($e->getMessage());
